@@ -1,0 +1,154 @@
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --bg-dark: #0f172a;
+  --bg-modal: #1e293b;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-dark);
+  color: white;
+  text-align: center;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Fondo animado */
+.math-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.floating-symbol {
+  position: absolute;
+  font-weight: bold;
+  animation: float 15s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh) rotate(0deg); }
+  to { transform: translateY(-10vh) rotate(360deg); }
+}
+
+/* Animación Logo */
+.logo-anim {
+  font-size: 3rem;
+  margin-top: 20%;
+  animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Botones */
+button {
+  padding: 14px;
+  margin: 8px;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 140px;
+}
+
+button:hover {
+  background: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+/* Pantallas */
+.screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  height: 100vh;
+  justify-content: center;
+}
+
+.active { display: flex; }
+
+/* Barra de Tiempo */
+.timer-container {
+  width: 80%;
+  height: 10px;
+  background: #334155;
+  border-radius: 10px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.timer-bar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #38bdf8, #2563eb);
+}
+
+/* Juego */
+.top {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  font-weight: bold;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: 350px;
+  margin-top: 20px;
+}
+
+/* Modales */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal .box {
+  background: var(--bg-modal);
+  padding: 25px;
+  border-radius: 20px;
+  width: 85%;
+  max-width: 320px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Efecto Error */
+.shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-10px); }
+  40%, 80% { transform: translateX(10px); }
+}
+
+input, textarea {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  background: #0f172a;
+  color: white;
+}

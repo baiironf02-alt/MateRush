@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>MateRush Pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="mathBg" class="math-bg"></div>
+
+<div id="ageModal" class="modal">
+  <div class="box">
+    <h2 data-text="ageTitle"></h2>
+    <input type="number" id="ageInput" placeholder="Edad">
+    <button onclick="saveAge()">OK</button>
+  </div>
+</div>
+
+<div id="home" class="screen active">
+  <h1 class="logo-anim">🧠 MateRush</h1>
+  <p class="record-text"><span data-text="record"></span>: <b id="record">0</b></p>
+
+  <button class="btn-play" data-text="play" onclick="startGame()"></button>
+  <button class="btn-settings" data-text="settings" onclick="openSettings()"></button>
+</div>
+
+<div id="game" class="screen">
+  <div class="top">
+    <span id="lives"></span>
+    <span><span data-text="level"></span>: <b id="level">1</b></span>
+    <span><span data-text="time"></span>: <b id="time">30</b>s</span>
+  </div>
+  
+  <div class="timer-container">
+    <div id="timerBar" class="timer-bar"></div>
+  </div>
+
+  <h2 id="question">1 + 1</h2>
+
+  <div class="options">
+    <button onclick="answer(this)"></button>
+    <button onclick="answer(this)"></button>
+    <button onclick="answer(this)"></button>
+    <button onclick="answer(this)"></button>
+  </div>
+
+  <button class="btn-pause" onclick="openPause()">⏸</button>
+</div>
+
+<div id="pauseModal" class="modal">
+  <div class="box">
+    <h2 data-text="pause"></h2>
+    <button data-text="resume" onclick="resumeGame()"></button>
+    <button onclick="confirmReset()"><span data-text="restart"></span></button>
+    <button onclick="goHome()">🏠 Inicio</button>
+  </div>
+</div>
+
+<div id="settingsModal" class="modal">
+  <div class="box">
+    <h2 data-text="settings"></h2>
+    <p>🌍 Idioma</p>
+    <div class="btn-group">
+      <button onclick="setLanguage('es')">ES</button>
+      <button onclick="setLanguage('en')">EN</button>
+    </div>
+    <p>🔊 Sonido</p>
+    <button id="soundBtn" onclick="toggleSound()">ON</button>
+    <button onclick="openSupport()" data-text="support"></button>
+    <button onclick="closeSettings()" data-text="close"></button>
+  </div>
+</div>
+
+<div id="supportModal" class="modal">
+  <div class="box">
+    <h2 data-text="support"></h2>
+    <input id="supportName" placeholder="Nombre">
+    <input id="supportEmail" placeholder="Correo">
+    <textarea id="supportMsg" placeholder="Mensaje"></textarea>
+    <button onclick="sendSupport()" data-text="send"></button>
+    <button onclick="closeSupport()" data-text="close"></button>
+  </div>
+</div>
+
+<div id="loseModal" class="modal">
+  <div class="box">
+    <h2 data-text="loseTitle"></h2>
+    <button data-text="loseBtn" onclick="goHome()"></button>
+  </div>
+</div>
+
+<audio id="soundCorrect" src="correct.mp3"></audio>
+<audio id="soundWrong" src="wrong.mp3"></audio>
+<audio id="soundLose" src="lose.mp3"></audio>
+
+<script src="app.js"></script>
+</body>
+</html>
